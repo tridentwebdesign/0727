@@ -37,7 +37,22 @@
   <script>
     //pure JS
     window.addEventListener('DOMContentLoaded', (e) => {
-
+      let text = document.getElementById('colorTarget');
+      let btns = document.querySelectorAll('button');
+      for(let i = 0; i < btns.length; i++){
+        btns[i].addEventListener('click', function(){
+          let btnDataColor = btns[i].getAttribute('data-color');
+          if(btnDataColor === 'redText'){
+            text.setAttribute('class', 'text_red');
+          }else if(btnDataColor === 'blueText'){
+            text.setAttribute('class', 'text_blue');
+          }else if(btnDataColor === 'orangeText'){
+            text.setAttribute('class', 'text_orange');
+          }else if(btnDataColor === 'backto'){
+            text.removeAttribute('class');
+          }
+        })
+      }
     });
 
     //jQuery
